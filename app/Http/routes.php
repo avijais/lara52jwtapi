@@ -10,6 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Methods:POST, GET, PUT, DELETE");
+header("Access-Control-Allow-Headers:Content-Type, Origin");
 
 Route::get('/', function () {
     return view('welcome');
