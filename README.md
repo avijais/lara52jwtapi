@@ -7,3 +7,6 @@ https://itsolutionstuff.com/post/laravel-52-api-using-jwt-authentication-tutoria
 
 # Allow Cross Origin
 http://itsolutionstuff.com/post/ajax-cross-origin-request-blocked-in-larave-5example.html
+
+# create db structre using migration
+php artisan migrate
