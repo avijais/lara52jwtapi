@@ -19,15 +19,24 @@ class APIController extends Controller
     }
     
 
+    // public function login(Request $request)
+    // {
+    // 	$input = $request->all();
+    // 	if (!$token = JWTAuth::attempt($input)) {
+    //         return response()->json(['result' => 'wrong email or password.']);
+    //     }
+    //     return response()->json(['result' => $token]);
+    // }
+
     public function login(Request $request)
     {
-    	$input = $request->all();
-    	if (!$token = JWTAuth::attempt($input)) {
-            return response()->json(['result' => 'wrong email or password.']);
+        $input = $request->all();
+        if (!$token = JWTAuth::attempt($input)) {
+            return response()->json(['status' => 'error', 'msg' => 'wrong email or password.']);
         }
-        return response()->json(['result' => $token]);
+        return response()->json(['status'=> 'success', 'msg' => 'login successfully', 'token' => $token]);
     }
-    
+
 
     public function get_user_details(Request $request)
     {
@@ -35,5 +44,5 @@ class APIController extends Controller
     	// $user = JWTAuth::toUser($input['token']);
     	$user = JWTAuth::toUser($request->header('token'));
         return response()->json(['result' => $user]);
-    }    
+    }
 }
